@@ -1,7 +1,7 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz"
+  url "https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tar.xz"
   sha256 "0382996d1ee6aafe59763426cf0139ffebe36984474d0ec4126dd1c40a8b3549"
 
   bottle do
@@ -332,7 +332,7 @@ class Python < Formula
     if prefix.exist?
       xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
     else
-      xy = version.to_s.slice(/(3\.\d)/) || "3.7"
+      xy = version.to_s.slice(/(3\.\d)/) || "3.5"
     end
     text = <<~EOS
       Python has been installed as
