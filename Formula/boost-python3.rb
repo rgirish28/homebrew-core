@@ -51,9 +51,7 @@ class BoostPython3 < Formula
     numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{pyver}/site-packages"
     numpy_site_packages.mkpath
     ENV["PYTHONPATH"] = numpy_site_packages
-    resource("numpy").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"homebrew-numpy")
-    end
+    resource("numpy").stage { Language::Python.setup_install "python", buildpath/"homebrew-numpy" }
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
